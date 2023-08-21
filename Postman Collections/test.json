@@ -46,7 +46,7 @@
 									}
 								}
 							],
-							"_postman_id": "e2c832be-0570-4c57-bc89-898b0cc3ce07",
+							"id": "e2c832be-0570-4c57-bc89-898b0cc3ce07",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -85,8 +85,7 @@
 										{
 											"id": "a3baeaca-fdf1-46dc-bcc9-02371f0ce0ec",
 											"key": "productId",
-											"value": "<string>",
-											"type": "string"
+											"value": "<string>"
 										}
 									]
 								},
@@ -143,7 +142,7 @@
 						},
 						{
 							"name": "Update",
-							"_postman_id": "5d001765-004b-4bc9-bdff-001462d0526a",
+							"id": "5d001765-004b-4bc9-bdff-001462d0526a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -186,8 +185,7 @@
 										{
 											"id": "84a7dfc6-b98f-4c48-a033-de8425f5582a",
 											"key": "productId",
-											"value": "<string>",
-											"type": "string"
+											"value": "<string>"
 										}
 									]
 								},
@@ -248,7 +246,7 @@
 						},
 						{
 							"name": "Delete",
-							"_postman_id": "d77e398a-54a6-469d-85cf-17751b61871b",
+							"id": "d77e398a-54a6-469d-85cf-17751b61871b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -276,8 +274,7 @@
 										{
 											"id": "9c51980f-a324-43d2-bcf2-49a5ce0b6fed",
 											"key": "productId",
-											"value": "<string>",
-											"type": "string"
+											"value": "<string>"
 										}
 									]
 								},
@@ -323,8 +320,7 @@
 							]
 						}
 					],
-					"_postman_id": "32292954-d0ee-4a55-86ad-08839e5cdbce",
-					"_postman_isSubFolder": true
+					"id": "32292954-d0ee-4a55-86ad-08839e5cdbce"
 				},
 				{
 					"name": "Add Product",
@@ -336,13 +332,17 @@
 								"exec": [
 									"pm.test(\"Successful POST request\", function () {",
 									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+									"});",
+									"",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
 									"});"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"_postman_id": "355be8ff-1c4d-4920-8dc8-d82dc9bca93b",
+					"id": "355be8ff-1c4d-4920-8dc8-d82dc9bca93b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -443,7 +443,7 @@
 							}
 						}
 					],
-					"_postman_id": "ca87ffd9-3b7b-456a-92e9-38ded814c6f0",
+					"id": "ca87ffd9-3b7b-456a-92e9-38ded814c6f0",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -531,7 +531,7 @@
 					]
 				}
 			],
-			"_postman_id": "2786a0bc-1094-48b9-9e4f-bdc2ea3c78a8"
+			"id": "2786a0bc-1094-48b9-9e4f-bdc2ea3c78a8"
 		}
 	],
 	"auth": {
@@ -567,10 +567,9 @@
 	],
 	"variable": [
 		{
-			"id": "66854e17-2318-4024-ae09-15a67a9aa92f",
+			"id": "3a763832-1ac8-4883-8b7c-7a8597271617",
 			"key": "baseUrl",
-			"value": "https://d2169c7a-4f67-4d45-bc37-0aa18b34217a.mock.pstmn.io",
-			"type": "string"
+			"value": "https://d2169c7a-4f67-4d45-bc37-0aa18b34217a.mock.pstmn.io"
 		}
 	]
 }
