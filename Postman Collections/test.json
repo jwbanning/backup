@@ -1,0 +1,576 @@
+{
+	"info": {
+		"_postman_id": "90943955-b006-45ff-a4a4-da20974975fe",
+		"name": "Products",
+		"description": "This is the OpenAPI for the Union Fashion product catalog.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "{productId}",
+					"item": [
+						{
+							"name": "Get Product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2966d5b6-ccab-416b-8b4e-b963ef7ee362",
+										"exec": [
+											"// pm.test(\"Body matches string\", function () {",
+											"//     pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");",
+											"// });",
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Color is brown\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    console.log(jsonData)",
+											"    pm.expect(jsonData.color).to.eql('Brown');",
+											"});",
+											"",
+											"pm.test(\"Content-Type is present\", function () {",
+											"    pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"",
+											"pm.test(\"Response time is less than 400ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "e2c832be-0570-4c57-bc89-898b0cc3ce07",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": {
+										"key": "x-api-key",
+										"value": "{{apiKey}}",
+										"in": "header"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/products/:productId?apitoken=",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":productId"
+									],
+									"query": [
+										{
+											"key": "apitoken",
+											"value": ""
+										}
+									],
+									"variable": [
+										{
+											"id": "a3baeaca-fdf1-46dc-bcc9-02371f0ce0ec",
+											"key": "productId",
+											"value": "<string>",
+											"type": "string"
+										}
+									]
+								},
+								"description": "Retrieves a single product."
+							},
+							"response": [
+								{
+									"id": "19f0b992-3422-42c1-a57a-adcad8539a21",
+									"name": "Single product.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "x-api-key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": null
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"identifier\": \"XYZ321\",\n    \"name\": \"Luggage tag\",\n    \"description\": \"Attach to luggage for easy identification\",\n    \"image\": \"luggage-tag.png\",\n    \"url\": \"example.com/products/luggage-tag\",\n    \"brand\": \"Own Brand\",\n    \"category\": \"travel\",\n    \"color\": \"Brown\",\n    \"logo\": \"Own Brand\",\n    \"manufacturer\": \"Own Brand\",\n    \"material\": \"Leather\",\n    \"model\": \"One size\",\n    \"releaseDate\": \"amet do\",\n    \"sku\": \"XYZ321\",\n    \"width\": \"Three inches\",\n    \"weight\": \"Light\",\n    \"depth\": \"Slim\",\n    \"height\": \"Slim\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update",
+							"_postman_id": "5d001765-004b-4bc9-bdff-001462d0526a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": {
+										"key": "x-api-key",
+										"value": "{{apiKey}}",
+										"in": "header"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"identifier\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"image\": \"<string>\",\n  \"url\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"category\": \"<string>\",\n  \"color\": \"<string>\",\n  \"logo\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"material\": \"<string>\",\n  \"model\": \"<string>\",\n  \"releaseDate\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"width\": \"<string>\",\n  \"weight\": \"<string>\",\n  \"depth\": \"<string>\",\n  \"height\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/products/:productId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":productId"
+									],
+									"variable": [
+										{
+											"id": "84a7dfc6-b98f-4c48-a033-de8425f5582a",
+											"key": "productId",
+											"value": "<string>",
+											"type": "string"
+										}
+									]
+								},
+								"description": "Supports either full or partial updates."
+							},
+							"response": [
+								{
+									"id": "7cefb9f9-34b1-48ff-bc37-11d878ccf96f",
+									"name": "Successfully updated.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "x-api-key",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"identifier\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"image\": \"<string>\",\n  \"url\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"category\": \"<string>\",\n  \"color\": \"<string>\",\n  \"logo\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"material\": \"<string>\",\n  \"model\": \"<string>\",\n  \"releaseDate\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"width\": \"<string>\",\n  \"weight\": \"<string>\",\n  \"depth\": \"<string>\",\n  \"height\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete",
+							"_postman_id": "d77e398a-54a6-469d-85cf-17751b61871b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": {
+										"key": "x-api-key",
+										"value": "{{apiKey}}",
+										"in": "header"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/:productId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":productId"
+									],
+									"variable": [
+										{
+											"id": "9c51980f-a324-43d2-bcf2-49a5ce0b6fed",
+											"key": "productId",
+											"value": "<string>",
+											"type": "string"
+										}
+									]
+								},
+								"description": "Delete an individual product."
+							},
+							"response": [
+								{
+									"id": "eb7bb6f7-45f9-4c32-b602-af8c17ae3033",
+									"name": "Product deleted.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "x-api-key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"_postman_id": "32292954-d0ee-4a55-86ad-08839e5cdbce",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Add Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "01d7d4ad-5f59-4f53-9a5e-5c140bc959af",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "355be8ff-1c4d-4920-8dc8-d82dc9bca93b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": {
+								"key": "x-api-key",
+								"value": "{{apiKey}}",
+								"in": "header"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"identifier\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"image\": \"<string>\",\n  \"url\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"category\": \"<string>\",\n  \"color\": \"<string>\",\n  \"logo\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"material\": \"<string>\",\n  \"model\": \"<string>\",\n  \"releaseDate\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"width\": \"<string>\",\n  \"weight\": \"<string>\",\n  \"depth\": \"<string>\",\n  \"height\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/products",
+						"description": "Creates a new productz."
+					},
+					"response": [
+						{
+							"id": "a74f5f45-94a1-4c72-a27d-ec5e81686bc2",
+							"name": "Successful creation of product.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "x-api-key",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"identifier\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"image\": \"<string>\",\n  \"url\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"category\": \"<string>\",\n  \"color\": \"<string>\",\n  \"logo\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"material\": \"<string>\",\n  \"model\": \"<string>\",\n  \"releaseDate\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"width\": \"<string>\",\n  \"weight\": \"<string>\",\n  \"depth\": \"<string>\",\n  \"height\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/products"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"identifier\": \"XYZ321\",\n    \"name\": \"Luggage tag\",\n    \"description\": \"Attach to luggage for easy identification\",\n    \"image\": \"luggage-tag.png\",\n    \"url\": \"example.com/products/luggage-tag\",\n    \"brand\": \"Own Brand\",\n    \"category\": \"travel\",\n    \"color\": \"Brown\",\n    \"logo\": \"Own Brand\",\n    \"manufacturer\": \"Own Brand\",\n    \"material\": \"Leather\",\n    \"model\": \"One size\",\n    \"releaseDate\": \"amet do\",\n    \"sku\": \"XYZ321\",\n    \"width\": \"Three inches\",\n    \"weight\": \"Light\",\n    \"depth\": \"Slim\",\n    \"height\": \"Slim\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5da835e-fdf6-419b-8b11-12bdde8ee4e1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "ca87ffd9-3b7b-456a-92e9-38ded814c6f0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": {
+								"key": "x-api-key",
+								"value": "{{apiKey}}",
+								"in": "header"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/products?query=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "<string>",
+									"description": "(Required) A query to search for products by."
+								}
+							]
+						},
+						"description": "Pulls a list of all product"
+					},
+					"response": [
+						{
+							"id": "7233b299-a908-4915-8552-e76b64237f5e",
+							"name": "List of products.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "x-api-key",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/products?query=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "<string>",
+											"description": "(Required) A query to search for products by."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n  {\n    \"identifier\": \"ABC789\",\n    \"name\": \"Luggage tag\",\n    \"description\": \"Attach to luggage for easy identification\",\n    \"image\": \"luggage-tag.png\",\n    \"url\": \"example.com/products/luggage-tag\",\n    \"brand\": \"Own Brand\",\n    \"category\": \"travel\",\n    \"color\": \"Brown\",\n    \"logo\": \"Own Brand\",\n    \"manufacturer\": \"Own Brand\",\n    \"material\": \"Leather\",\n    \"model\": \"One size\",\n    \"releaseDate\": \"amet do\",\n    \"sku\": \"XYZ321\",\n    \"width\": \"Three inches\",\n    \"weight\": \"Light\",\n    \"depth\": \"Slim\",\n    \"height\": \"Slim\"\n  },\n  {\n    \"identifier\": \"XYZ321\",\n    \"name\": \"Luggage tag\",\n    \"description\": \"Attach to luggage for easy identification\",\n    \"image\": \"luggage-tag.png\",\n    \"url\": \"example.com/products/luggage-tag\",\n    \"brand\": \"Own Brand\",\n    \"category\": \"travel\",\n    \"color\": \"Brown\",\n    \"logo\": \"Own Brand\",\n    \"manufacturer\": \"Own Brand\",\n    \"material\": \"Leather\",\n    \"model\": \"One size\",\n    \"releaseDate\": \"amet aute\",\n    \"sku\": \"XYZ321\",\n    \"width\": \"Three inches\",\n    \"weight\": \"Light\",\n    \"depth\": \"Slim\",\n    \"height\": \"Slim\"\n  }\n]"
+						}
+					]
+				}
+			],
+			"_postman_id": "2786a0bc-1094-48b9-9e4f-bdc2ea3c78a8"
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": {
+			"username": "{{basicAuthUsername}}",
+			"password": "{{basicAuthPassword}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9355a031-5f3e-4f09-bf65-90b122e87adc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "72df6d54-cfa4-4aa3-a44d-3913d0e3958c",
+				"type": "text/javascript",
+				"exec": [
+					"// pm.test(\"Status code is 200\", function () {",
+					"//     pm.response.to.have.status(200);",
+					"// });"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "66854e17-2318-4024-ae09-15a67a9aa92f",
+			"key": "baseUrl",
+			"value": "https://d2169c7a-4f67-4d45-bc37-0aa18b34217a.mock.pstmn.io",
+			"type": "string"
+		}
+	]
+}
